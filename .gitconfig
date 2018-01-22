@@ -1,0 +1,5 @@
+[user]
+	name = Anthony Ilinykh
+	email = anthonyilinykh@gmail.com
+[url "https://"]
+	insteadOf = git://
