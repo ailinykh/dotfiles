@@ -31,12 +31,16 @@ for dotfile in $(find . -maxdepth 1 \
     -not -path './Brewfile'\
     -not -path './install.sh'\
     -not -path './README.md'\
+    -not -path './.macos'\
     | cut -sd / -f 2- ) 
 do
     rm -rf ~/$dotfile
     ln -s $DOTFILES_ROOT/$dotfile ~/$dotfile
     echo "${dotfile} successfully linked to ~/${dotfile}"
 done
+
+# setup macos
+source .macos
 
 # visual studio code extensions
 # source ~/.zshrc
