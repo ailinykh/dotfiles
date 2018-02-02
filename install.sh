@@ -48,5 +48,3 @@ source .macos
 # code --install-extension dbaeumer.vscode-eslint
 # code --install-extension robertohuertasm.vscode-icons
 # code --install-extension zhuangtongfa.Material-theme
-
-exit 0
