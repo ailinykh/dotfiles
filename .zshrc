@@ -57,6 +57,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.profile
 
 # User configuration
+c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
