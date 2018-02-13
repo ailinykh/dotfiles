@@ -132,4 +132,15 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 # Randomize port on launch
 defaults write org.m0k.transmission RandomPort -bool true
 
+###############################################################################
+# Desktop                                                                     #
+###############################################################################
 
+osascript -e '
+tell application "System Events"
+	tell current desktop
+		set picture rotation to 1
+		set random order to true
+		set change interval to 1800.0
+	end tell
+end tell'
