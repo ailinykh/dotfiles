@@ -54,7 +54,10 @@ ZSH_THEME="af-magic"
 plugins=(git nyan docker)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.profile
+
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
 
 # User configuration
 c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
