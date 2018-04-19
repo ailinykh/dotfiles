@@ -64,5 +64,9 @@ c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a a
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
+# Docker alias
+drm() { docker rm $(docker ps -a -q); }
+dri() { docker rmi $(docker images -q); }
+
 # Map CTRL to CapsLock
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}' > /dev/null
