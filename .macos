@@ -133,6 +133,12 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 defaults write org.m0k.transmission RandomPort -bool true
 
 ###############################################################################
+# Things 3                                                                    #
+###############################################################################
+
+defaults write com.culturedcode.ThingsMac QuickEntryHotkeyEmpty -dict characters "\\U2325\\U23b5" keyCode 49 keyModifiers 2048
+
+###############################################################################
 # Desktop                                                                     #
 ###############################################################################
 
