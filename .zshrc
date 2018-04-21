@@ -60,7 +60,8 @@ if [ -f ~/.profile ]; then
 fi
 
 # User configuration
-c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
+c480 () { for f in $@; do; name="${f##*/}"; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${name%.*}".480.mp4; done; }
+c720 () { for f in $@; do; name="${f##*/}"; ffmpeg -i "${f}" -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 "${name%.*}".720.mp4; done; }
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
