@@ -61,6 +61,10 @@ fi
 
 # User configuration
 c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
+c720 () { for f in $@; do; ffmpeg -i "${f}" -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".720.mp4; done; }
+c1080 () { for f in $@; do; ffmpeg -i "${f}" -s hd1080 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".1080.mp4; done; }
+
+cgif () { ffmpeg -i $1 -y -vf fps=10,scale=640:-1:flags=lanczos,palettegen palette.png && ffmpeg -i $1 -i palette.png -filter_complex "fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1%.*}".gif && rm palette.png  }
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
