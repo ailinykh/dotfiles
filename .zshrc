@@ -60,6 +60,7 @@ if [ -f ~/.profile ]; then
 fi
 
 # User configuration
+
 c480 () { for f in $@; do; ffmpeg -i "${f}" -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
 c720 () { for f in $@; do; ffmpeg -i "${f}" -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".720.mp4; done; }
 c1080 () { for f in $@; do; ffmpeg -i "${f}" -s hd1080 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".1080.mp4; done; }
