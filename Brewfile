@@ -10,6 +10,7 @@ brew "node"
 brew "swiftlint"
 brew "yarn"
 
+cask "dash"
 cask "docker"
 cask "postman"
 cask "transmission"
