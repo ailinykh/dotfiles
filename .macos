@@ -9,6 +9,9 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
+# Dock: not display recent launched applications
+defaults write com.apple.dock show-recents -bool false
+
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
