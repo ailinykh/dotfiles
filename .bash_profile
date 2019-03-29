@@ -6,3 +6,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}' > /dev/null
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+export PATH=$HOME/Library/Python/3.7/bin:$PATH
