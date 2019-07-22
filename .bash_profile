@@ -10,3 +10,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export PATH=$HOME/Library/Python/3.7/bin:$PATH
+
+cgif() {
+  ffmpeg -i $1 -y -vf fps=10,scale=640:-1:flags=lanczos,palettegen palette.png
+  ffmpeg -i $1 -i palette.png -filter_complex "fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1%.*}".gif 
+  rm palette.png
+}
+
