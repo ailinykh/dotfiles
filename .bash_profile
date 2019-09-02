@@ -14,4 +14,3 @@ cgif() {
   ffmpeg -i $1 -i palette.png -filter_complex "fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1%.*}".gif 
   rm palette.png
 }
-
