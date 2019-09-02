@@ -1,6 +1,11 @@
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+7zax() {
+  7za x $1 -o${1%.*}
+}
+
+# Map CTRL to CapsLock
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}' > /dev/null
 
 export PATH="$HOME/.cargo/bin:$PATH"
