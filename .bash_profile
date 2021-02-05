@@ -18,7 +18,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-export PATH=$HOME/Library/Python/3.7/bin:$PATH
+#export PATH=$HOME/Library/Python/3.7/bin:$PATH
+
+export PATH="/usr/local/opt/qt/bin:$PATH"
 
 cgif() {
   ffmpeg -i $1 -y -vf fps=10,scale=640:-1:flags=lanczos,palettegen palette.png

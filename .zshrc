@@ -14,7 +14,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="af-magic"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -68,25 +68,43 @@ fi
 
 # User configuration
 
+git_cherry_pick() {
+  [ $# -lt 1 ] && echo "$0 commit_hash [destination_branch=master]" && return 1
+  local BRANCH=${2:-master}
+  
+  git checkout -b user/ilinykh/cherry_pick_$1 $BRANCH
+  [ $? != 0 ] && return 1
+
+  git cherry-pick $1
+  [ $? != 0 ] && return 1
+
+  git push origin HEAD
+  [ $? != 0 ] && return 1
+
+  git checkout master
+}
+
+rmt() { [ $# -lt 1 ] && echo "$0 filename" && return 1; cat $1 | grep -v '\trmt\t' >> "${1%.*}_rmt.log" }
+
 # ffmpeg aliases
 
-c480 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".480.mp4; done; }
-c720 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".720.mp4; done; }
-c1080 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd1080 -c:v libx264 -crf 23 -c:a aac -strict -2 "${f%.*}".1080.mp4; done; }
+c480 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "`basename ${f%.*}`".480.mp4; done; }
+c720 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 "`basename ${f%.*}`".720.mp4; done; }
+c1080 () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -s hd1080 -c:v libx264 -crf 23 -c:a aac -strict -2 "`basename ${f%.*}`".1080.mp4; done; }
 
 cipad () { for f in $@; do; ffmpeg -i "${f}" -map_metadata 0:g -acodec aac -ac 2 -strict experimental -ab 160k -s 1024x768 -vcodec libx264 -preset slow -profile:v baseline -level 30 -maxrate 10000000 -bufsize 10000000 -b 1200k -f mp4 -threads 0 "${f%.*}".iPad.mp4; done; }
 
 cgif () { ffmpeg -i $1 -y -vf fps=10,scale=640:-1:flags=lanczos,palettegen palette.png && ffmpeg -i $1 -i palette.png -filter_complex "fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1%.*}".gif && rm palette.png  }
 
 ccut() {
-    if ! [ $# -gt 1 ]; then
+    if [ $# -lt 2 ]; then
         echo "usage:"
         echo "ccut <seconds> <file1> [<file2>, <file3>, ...]"
         echo "or"
         echo "ccut <start time> <seconds> <file1>"
         echo ""
         echo "ccut 00:10:00 60 movie.mp4"
-        exit 1
+        return 1
     fi
 
     if [[ $1 =~ ^([0-9][0-9]:){2}[0-9][0-9]$ ]]; then
@@ -115,7 +133,14 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # Docker alias
 drm() { docker rm $(docker ps -a -q); }
 dri() { docker rmi $(docker images -q); }
+<<<<<<< HEAD
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+=======
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/usr/local/opt/openal-soft/bin:$PATH"
+>>>>>>> f1a943d (one more update)
