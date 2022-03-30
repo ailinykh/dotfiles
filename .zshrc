@@ -72,7 +72,7 @@ git_cherry_pick() {
   [ $# -lt 1 ] && echo "$0 commit_hash [destination_branch=master]" && return 1
   local BRANCH=${2:-master}
   
-  git checkout -b user/ilinykh/cherry_pick_$1 $BRANCH
+  git checkout -b user/ilinykh/cherry_pick_$1_to_$BRANCH $BRANCH
   [ $? != 0 ] && return 1
 
   git cherry-pick $1
