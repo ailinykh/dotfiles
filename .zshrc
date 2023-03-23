@@ -86,6 +86,8 @@ git_cherry_pick() {
 
 rmt() { [ $# -lt 1 ] && echo "$0 filename" && return 1; cat $1 | grep -v '\trmt\t' >> "${1%.*}_rmt.log" }
 
+igid() { curl -s -H "x-ig-app-id: 936619743392459" "https://www.instagram.com/api/v1/users/web_profile_info/?username=$1" | jq '.data.user | {id, username, is_private}' }
+
 # ffmpeg aliases
 
 c480 () { for f in $@; do; ffmpeg -v error -stats -i "${f}" -map_metadata 0:g -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 "`basename ${f%.*}`".480.mp4; done; }
