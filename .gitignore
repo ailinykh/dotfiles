@@ -1,0 +1,19 @@
+.DS_Store
+tmux/plugins/
+
+# Environment and local overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Private key / credential artifacts
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+
+# Local runtime artifacts
+*.log
