@@ -18,6 +18,6 @@ return {
     },
   },
   -- Configure LazyVim to load catppuccin
-  { "catppuccin/nvim", name = "catppuccin", opts = { flavour = "mocha" } },
+  { "catppuccin/nvim", name = "catppuccin", opts = { flavour = "mocha", transparent_background = false } },
   { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin-mocha" } },
 }
