@@ -17,4 +17,7 @@ return {
       ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
     },
   },
+  -- Configure LazyVim to load catppuccin
+  { "catppuccin/nvim", name = "catppuccin", opts = { flavour = "mocha" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin-mocha" } },
 }
