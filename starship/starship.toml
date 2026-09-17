@@ -35,10 +35,12 @@ symbol = ""
 format = '[$symbol( $version) ]($style)'
 
 [python]
+disabled = true
 symbol = ""
 format = '[$symbol( $version)( \(#$virtualenv\)) ](bold blue)'
 
 [ruby]
+disabled = true
 symbol = ""
 format = '[$symbol ]($style)'
 
