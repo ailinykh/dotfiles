@@ -1,3 +1,4 @@
+custom-shader = ~/.config/ghostty/shaders/space.glsl
 theme = Catppuccin Mocha
 font-size = 19
 mouse-hide-while-typing = true
