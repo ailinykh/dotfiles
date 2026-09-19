@@ -18,6 +18,15 @@ return {
     },
   },
   -- Configure LazyVim to load catppuccin
-  { "catppuccin/nvim", name = "catppuccin", opts = { flavour = "mocha", transparent_background = false } },
-  { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin-mocha" } },
+  --{ "catppuccin/nvim", name = "catppuccin", opts = { flavour = "mocha", transparent_background = false } },
+  --{ "LazyVim/LazyVim", opts = { colorscheme = "catppuccin-mocha" } },
+  --
+  --  -- configure `tokyonight` theme
+  --  {
+  --    "folke/tokyonight.nvim",
+  --    opts = {
+  --      transparent = true,
+  --      styles = { sidebars = "transparent", floats = "transparent" },
+  --    },
+  --  },
 }
