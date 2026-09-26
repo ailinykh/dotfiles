@@ -3,3 +3,4 @@
 -- Add any additional options before
 vim.opt.winbar = "%=%m %f"
 vim.g.root_spec = { "cwd" }
+vim.g.lazyvim_python_lsp = "basedpyright"
