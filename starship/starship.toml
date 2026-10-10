@@ -36,7 +36,7 @@ format = '[$symbol( $version) ]($style)'
 
 [python]
 symbol = ""
-format = '[$symbol( $version)( \(#$virtualenv\)) ](bold blue)'
+format = '[$symbol( \(#$virtualenv\)) ](bold blue)'
 
 [ruby]
 disabled = true
