@@ -1,6 +1,8 @@
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
+bindkey -e
+
 if [[ -n "$TMUX" ]]; then
   autoload -Uz add-zsh-hook
 
