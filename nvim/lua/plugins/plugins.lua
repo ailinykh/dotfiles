@@ -11,10 +11,10 @@ return {
       "TmuxNavigatorProcessList",
     },
     keys = {
-      ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
-      ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
-      ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
-      ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+      { "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "Window left" },
+      { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Window down" },
+      { "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "Window up" },
+      { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Window right" },
     },
   },
   -- Configure LazyVim to load catppuccin
